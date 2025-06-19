@@ -1,4 +1,4 @@
-import {AudioLines, ChevronUpIcon, Mic, SlidersHorizontal} from "lucide-react";
+import { AudioLines, ChevronUpIcon, Mic, SlidersHorizontal } from "lucide-react";
 import { useRef } from "react";
 
 const ChatForm = ({ setChatHistory }) => {
@@ -16,7 +16,7 @@ const ChatForm = ({ setChatHistory }) => {
       { role: "assistant", text: "Thinking..." },
     ]);
 
-    // Clear input After message
+    // Clear input after message
     inputRef.current.value = "";
 
     try {
@@ -26,12 +26,12 @@ const ChatForm = ({ setChatHistory }) => {
           method: "POST",
           headers: {
             Authorization: `Bearer ${import.meta.env.VITE_APIKEY}`,
-            "HTTP-Referer": "https://deep-vein.vercel.app/", // Replace with your live site URL
+            "HTTP-Referer": "https://deep-vein.vercel.app/",
             "X-Title": "Deep Vein",
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            model: "google/gemini-2.5-flash-lite-preview-06-17",
+            model: "deepseek/deepseek-r1-0528:free", // Changed to DeepSeek R1
             messages: [
               {
                 role: "system",
@@ -40,12 +40,7 @@ const ChatForm = ({ setChatHistory }) => {
               },
               {
                 role: "user",
-                content: [
-                  {
-                    type: "text",
-                    text: userMessage,
-                  },
-                ],
+                content: userMessage, // Simplified (no array for text-only input)
               },
             ],
           }),
@@ -80,16 +75,13 @@ const ChatForm = ({ setChatHistory }) => {
   };
 
   return (
-    <form
-      className="chat-form flex flex-col "
-      onSubmit={handleFormSubmit}
-    >
-      <fieldset className=" flex justify-between">
+    <form className="chat-form flex flex-col" onSubmit={handleFormSubmit}>
+      <fieldset className="flex justify-between">
         <input
           ref={inputRef}
           type="text"
           placeholder="Ask Anything..."
-          className="message-input w-full  border-0 outline-0"
+          className="message-input w-full border-0 outline-0"
           required
         />
         <button type="submit" className="send-button">
@@ -104,14 +96,13 @@ const ChatForm = ({ setChatHistory }) => {
       {/* Tools */}
       <div className="mt-4 flex justify-between">
         <span className="flex flex-row gap-5">
-          <SlidersHorizontal/>
+          <SlidersHorizontal />
           <p>Tools</p>
           <p>+</p>
         </span>
-
         <span className="flex flex-row gap-4">
-          <Mic/>
-          <AudioLines/>
+          <Mic />
+          <AudioLines />
         </span>
       </div>
     </form>
