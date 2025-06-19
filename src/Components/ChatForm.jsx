@@ -26,7 +26,7 @@ const ChatForm = ({ setChatHistory }) => {
           method: "POST",
           headers: {
             Authorization: `Bearer ${import.meta.env.VITE_APIKEY}`,
-            "HTTP-Referer": "http://localhost:5173", // Replace with your live site URL
+            "HTTP-Referer": "https://deep-vein.vercel.app/", // Replace with your live site URL
             "X-Title": "Deep Vein",
             "Content-Type": "application/json",
           },
