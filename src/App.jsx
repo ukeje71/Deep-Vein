@@ -42,7 +42,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <div className="chatbot-popup">
+      <div className="chatbot-popup h-[100vh] md:h-fit">
         <div className="chat-header shadow-sm">
           <div className="flex flex-row items-center ">
             <ChevronLeftIcon />
