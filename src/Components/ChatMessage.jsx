@@ -1,5 +1,5 @@
 import React from "react";
-import UserAvatar from "../assets/ukeje -Isaac.jpg";
+import UserAvatar from "../assets/Samuel.jpg";
 
 const ChatMessage = ({ chat }) => {
   const isBot = chat.role === "assistant";
