@@ -3,7 +3,7 @@ import { useRef } from "react";
 
 const ChatForm = ({ setChatHistory }) => {
   const inputRef = useRef();
-
+ 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const userMessage = inputRef.current.value.trim();
