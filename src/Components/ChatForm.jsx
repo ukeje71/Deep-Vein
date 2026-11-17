@@ -31,7 +31,7 @@ const ChatForm = ({ setChatHistory }) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            model: "deepseek/deepseek-r1-0528:free", // Changed to DeepSeek R1
+            model: "nvidia/nemotron-3-ultra-550b-a55b:free", // Changed to DeepSeek R1
             messages: [
               {
                 role: "system",
